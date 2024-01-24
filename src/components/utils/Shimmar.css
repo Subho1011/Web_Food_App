@@ -1,0 +1,19 @@
+.shimmar-container {
+  padding: 5rem 15rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 3rem;
+  column-gap: 5rem;
+  /* align-content: center;
+  justify-content: center;
+  align-items: center; */
+  justify-items: center;
+}
+
+.shimmar-card {
+  width: 32rem;
+  height: 35rem;
+  border: none;
+  border-radius: 9px;
+  background-color: #dee2e6;
+}
