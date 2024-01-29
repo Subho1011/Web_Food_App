@@ -4,11 +4,13 @@ import logo from '../../img/logo.png'
 import Button from './utils/Button';
 import { SearchContext } from '../context/SearchContext';
 import { Link } from 'react-router-dom';
+import useOnlineStatus from './utils/useOnlineStatus';
 
 const Header = (props) => {
   const [localSearchWord, setLocalSearchWord] = useState('');
   // Here we are importing the state variable and function which we had declared in SeachProvider
   const [searchWord, setSearchWord] = useContext(SearchContext);
+  const isOnline = useOnlineStatus();
   const photo = [logo];
   // Function to modify the searchWord state variable with every keystroke
   const searchHandelar = (e) => {
@@ -42,6 +44,9 @@ const Header = (props) => {
           ></input>
         </div>
         <button className="search-button" onClick={searchBtnClick}>Search</button>
+      </div>
+      <div class="online-status">
+        <p>Online Status: {isOnline ? "✔" : "🧧"}</p>
       </div>
       <div className="login">
         <button>Login</button>
