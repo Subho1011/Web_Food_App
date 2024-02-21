@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import './Main.css';
-import Card from './utils/Card'
+import Card, { promotedCard } from './utils/Card'
 //import foodItems from './utils/mockdata';
 import Button from './utils/Button';
 import { Shimmar } from './utils/Shimmar'; //Importing named export
@@ -15,6 +15,8 @@ const Main = (props) => {
   //Below state variable will check if foodItems array is fetched or not
   const [isFailedToFetch, setIsFailedToFetch] = useState(false);
   // const [searchWord, setSearchWord] = useState(props.searchWord);
+  // Below is a higher order component
+  const CardPromoted = promotedCard(Card);
   let fetchedFoodItems = [];
 
   useEffect(() => {
@@ -26,7 +28,7 @@ const Main = (props) => {
     // fetchData is a function in utils/fetchAPI component which returns food item using fetch API
     fetchedFoodItems = await fetchData();
     // If fetchedFoodItems is undefined isFailedToFetch will be true and control will go back from this function to useEffect
-    if (typeof(fetchedFoodItems) === 'undefined') {
+    if (typeof (fetchedFoodItems) === 'undefined') {
       setIsFailedToFetch(true);
       return;
     }
@@ -60,7 +62,9 @@ const Main = (props) => {
       <div className="cart-container">
         {isFailedToFetch && <h1>Failed to fetch.....</h1>}
         {(foodItemsArray.length === 0 && !isFailedToFetch) && <Shimmar />}
-        {foodItemsArray.map((food) => { return <Card key={food.id} foods={food} /> })}
+        {foodItemsArray.map((food) => {
+          return (food.promoted ? <CardPromoted key={food.id} foods={food} /> : <Card key={food.id} foods={food} />);
+        })}
       </div>
     </div>
 

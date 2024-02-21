@@ -14,7 +14,8 @@ const fetchData = async () => {
         name: dataListJSON[key].name,
         star: dataListJSON[key].star,
         description: dataListJSON[key].description,
-        price: dataListJSON[key].price
+        price: dataListJSON[key].price,
+        promoted: dataListJSON[key].promoted
       });
     }
     return loadedFood;

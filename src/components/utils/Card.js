@@ -32,4 +32,14 @@ const Card = (props) => {
   );
 };
 
+export const promotedCard = (Card) => {
+  return (props) => {
+    return (
+      <div>
+        <label className={classes.promoted}>Promoted</label>
+        <Card {...props}/>
+      </div>
+    );
+  }
+};
 export default Card;
