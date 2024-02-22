@@ -8,10 +8,37 @@ import GuptaBrothers from '../../../img/food/GuptaBrothers.jpg';
 import Haldirams from '../../../img/food/Haldirams.jpg';
 import Shanghai from '../../../img/food/Shanghai.jpg';
 import ShreeBalaji from '../../../img/food/ShreeBalaji.jpg';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 
 const Card = (props) => {
   foodImg = [Haldirams, AllenKitchen, Golbari, BurgurKing, ShreeBalaji, Shanghai, GuptaBrothers, Aminia, Dominos];
+  const [cartState, dispatch] = useContext(CartContext);
+
+  const addToCartHandler = () => {
+    dispatch({
+      type: 'ADD_TO_CART',
+      payload: {
+        id: props.foods.id,
+        name: props.foods.name,
+        star: props.foods.star,
+        description: props.foods.description,
+        price: props.foods.price
+      }
+    });
+  }
+
+  const removeFromCartHandler = () => {
+    dispatch({
+      type: 'REMOVE_FROM_CART',
+      payload: {
+        id: props.foods.id,
+        price: props.foods.price
+      }
+    });
+  }
+
   return (
     <div className={classes.Card}>
       <img src={foodImg[props.foods.id]} alt="Haldirams"></img>
@@ -25,8 +52,8 @@ const Card = (props) => {
         <span class={classes['Card-price']}>{props.foods.price}</span>
       </div>
       <div className={classes['Card-call-to-action']}>
-        <button className={classes.fill}>Order Now</button>
-        <button>Add to cart</button>
+        <button className={classes.fill} onClick={removeFromCartHandler} disabled={!cartState.cart.some((item) => item.id === props.foods.id)}>Remove from Cart</button>
+        <button onClick={addToCartHandler} disabled={cartState.cart.some((item) => item.id === props.foods.id)}>{cartState.cart.some((item) => item.id === props.foods.id) ? 'Already added' : 'Add to cart'}</button>
       </div>
     </div>
   );
@@ -37,7 +64,7 @@ export const promotedCard = (Card) => {
     return (
       <div>
         <label className={classes.promoted}>Promoted</label>
-        <Card {...props}/>
+        <Card {...props} />
       </div>
     );
   }
