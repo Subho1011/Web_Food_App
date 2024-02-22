@@ -59,7 +59,7 @@ const Main = (props) => {
         <Button className={'button'} onClick={showTopRated}>Top Rated</Button>
         <Button className={'button'} onClick={showFull}>Show Full</Button>
       </div>
-      <div className="cart-container">
+      <div className="card-container">
         {isFailedToFetch && <h1>Failed to fetch.....</h1>}
         {(foodItemsArray.length === 0 && !isFailedToFetch) && <Shimmar />}
         {foodItemsArray.map((food) => {

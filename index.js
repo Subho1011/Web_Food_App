@@ -8,6 +8,8 @@ import Help from './src/pages/Help';
 import Social from './src/pages/Social';
 import Main from './src/components/Main';
 import Error from './src/pages/Error';
+import Cart from './src/pages/Cart';
+import CartProvider from './src/context/CartProvider';
 
 // Lazy loading/chunking/creating separate bundles for About Component
 const About = lazy(() => import('./src/pages/About'));
@@ -37,6 +39,10 @@ const pageRouter = createBrowserRouter([
       {
         path: "/social",
         element: <Social />
+      },
+      {
+        path: '/cart',
+        element: <Cart/>
       }
     ]
   }

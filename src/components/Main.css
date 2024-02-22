@@ -34,7 +34,7 @@
 *****************CART-CONTAINER*****************
 ************************************************/
 
-.cart-container {
+.card-container {
   padding: 5rem 15rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
