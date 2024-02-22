@@ -41,7 +41,7 @@ const Card = (props) => {
 
   return (
     <div className={classes.Card}>
-      <img src={foodImg[props.foods.id]} alt="Haldirams"></img>
+      <img src={foodImg[props.foods.id]} alt={props.foods.name}></img>
       <div className={classes['Card-content']}>
         <h1 className={classes['Card-name']}>{props.foods.name}</h1>
         <div className={classes.rating}><span>{props.foods.star}</span><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={classes.star}>
