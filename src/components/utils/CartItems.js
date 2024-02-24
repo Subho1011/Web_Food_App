@@ -8,10 +8,24 @@ import Haldirams from '../../../img/food/Haldirams.jpg';
 import Shanghai from '../../../img/food/Shanghai.jpg';
 import ShreeBalaji from '../../../img/food/ShreeBalaji.jpg';
 import classes from './CartItems.module.css';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 const CartItems = ({ cartItem }) => {
   foodImg = [Haldirams, AllenKitchen, Golbari, BurgurKing, ShreeBalaji, Shanghai, GuptaBrothers, Aminia, Dominos];
   const { id, name, star, description, price } = cartItem;
+  const [cartState, dispatch] = useContext(CartContext);
+
+  const removeHandler = () => {
+    dispatch({
+      type: 'REMOVE_FROM_CART',
+      payload: {
+        id,
+        price
+      }
+    });
+  }
+
   return (
     <div className={classes['cart-item-container']}>
       <section className={classes['cart-item-textbox']}>
@@ -21,7 +35,7 @@ const CartItems = ({ cartItem }) => {
       </section>
       <section className={classes['cart-item-imgbox']}>
         <img src={foodImg[id]} alt={name}></img>
-        <button>Remove</button>
+        <button onClick={removeHandler}>Remove</button>
       </section>
     </div>
   );

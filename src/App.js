@@ -32,7 +32,6 @@ const App = () => {
 
       {/*Components are nothing but a function. So we can call them like this as well.*/}
       {Footer()}
-      <Signup />
     </Fragment>
   );
 };

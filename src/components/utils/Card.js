@@ -69,4 +69,5 @@ export const promotedCard = (Card) => {
     );
   }
 };
+
 export default Card;

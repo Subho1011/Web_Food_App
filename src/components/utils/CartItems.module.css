@@ -54,4 +54,5 @@
   background-color: white;
   border: none;
   box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+  cursor: pointer;
 }
