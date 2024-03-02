@@ -1,32 +1,60 @@
 /***********************************************
-*****************FORM***************************
+*************MODAL-CONTENT**********************
 ************************************************/
-.form-control{
-  width: 40rem;
-  height: 40rem;
-  margin: 50rem auto;
-  border: 1px solid #000;
-  padding: 5rem 3rem;
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
-.form-details{
+/***********************************************
+*****************FORM***************************
+************************************************/
+.form-control {
+  background-color: #fefefe;
+  width: 60rem;
+  height: auto;
+  border: 1px solid #000;
+  padding: 0.5rem 0.3rem;
+}
+
+.form-details {
   margin-bottom: 1rem;
 }
 .form-details,
-.form-address{
+.form-address {
   padding: 2rem 5rem;
 }
 
-.form-address{
-   display: grid;
-  grid-template-columns: repeat(2,1fr);
-  row-gap: 1rem;
+.form-heading h1 {
+  font-size: 3.2rem;
+  margin-bottom: 1rem;
 }
 
-.form-address > span > input{
-  width: 10rem;
+.form-control label {
+  display: block;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
 }
 
-.line{
-  border-top:1px solid #000;
+.form-control input {
+  border: 1px solid black;
+  width: 100%;
+  padding: 0.5rem 0.14rem;
+  margin-bottom: 1rem;
+}
+
+.form-action {
+  text-align: center;
+}
+
+.form-action button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-transform: uppercase;
 }
