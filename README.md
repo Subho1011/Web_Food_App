@@ -1,2 +1,2 @@
-# This is a food ordering app made with the help of Namaste React
+# This is a food ordering app made using React
 # Author Subhabrata
