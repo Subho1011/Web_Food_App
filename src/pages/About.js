@@ -1,6 +1,6 @@
 // In about page I am going to fetch my details from github and display it here
 import User from "./User";
-import UserClass from "./UserClass";
+import UserClass from "./UserCLass";
 import React from 'react';
 
 class About extends React.Component {
